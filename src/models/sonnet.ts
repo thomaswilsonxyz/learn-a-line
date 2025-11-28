@@ -1,15 +1,15 @@
+import { SonnetLine } from './sonnetLine';
+
 export class Sonnet {
-    constructor(
-        private readonly theText: string
-    ) {}
+	constructor(private readonly theText: string) {}
 
-    getLine(theLineIndex: number): string {
-        const proposedValue = this.theText.split(`\n`)[theLineIndex] 
+	getLine(theLineIndex: number): SonnetLine {
+		const proposedValue = this.theText.split(`\n`)[theLineIndex];
 
-        if (proposedValue === undefined) {
-            throw new Error(`Line index ${theLineIndex} requested for sonnet, but not found`)
-        }
+		if (proposedValue === undefined) {
+			throw new Error(`Line index ${theLineIndex} requested for sonnet, but not found`);
+		}
 
-        return proposedValue;
-    }
+		return new SonnetLine(proposedValue);
+	}
 }
