@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest';
 import { SonnetService } from './sonnetService';
-import { Sonnet } from '../models/sonnet';
+import { SonnetFactory } from '../../test/factories';
 
 describe(`SonnetService`, () => {
 	test(`Get some words to recall for the sonnet`, () => {
@@ -14,7 +14,7 @@ first word to recall
 
 		// When
 		const wordsToRecall = sonnetService.getWordsToRecall(
-			new Sonnet(theSonnetText),
+			new SonnetFactory().withFullText(theSonnetText).build(),
 			[
 				{ lineIndex: 0, text: 'test', textLineIndex: 0 },
 				{ lineIndex: 1, text: 'remember', textLineIndex: 0 }

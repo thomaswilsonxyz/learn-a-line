@@ -1,7 +1,15 @@
 import { SonnetLine } from './sonnetLine';
 
 export class Sonnet {
-	constructor(private readonly theText: string) {}
+	constructor(
+		public readonly id: string,
+		public readonly name: string,
+		private readonly theText: string
+	) {}
+
+	get fullText() {
+		return this.theText;
+	}
 
 	getLine(theLineIndex: number): SonnetLine {
 		const proposedValue = this.theText.split(`\n`)[theLineIndex];
