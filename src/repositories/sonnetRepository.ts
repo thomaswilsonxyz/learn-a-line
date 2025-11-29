@@ -2,11 +2,18 @@ import { Sonnet } from '../models/sonnet';
 
 interface ISonnetRepository {
 	getAllSonnets: () => Sonnet[];
+	getSonnet: (id: string) => Sonnet | null;
 }
 
 export class RealSonnetRepository implements ISonnetRepository {
+	private readonly allSonnets = [sonnet116];
+
 	getAllSonnets() {
-		return [sonnet116];
+		return this.allSonnets;
+	}
+
+	getSonnet(theId: string) {
+		return this.allSonnets.find((sonnet) => sonnet.id === theId) ?? null;
 	}
 }
 
