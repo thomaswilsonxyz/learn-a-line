@@ -1,6 +1,7 @@
 import { describe, expect, test } from 'vitest';
 import { SonnetService } from './sonnetService';
 import { SonnetFactory } from '../../test/factories';
+import { RecallableQuestion } from '../models/recallableQuestion';
 
 describe(`SonnetService`, () => {
 	test(`Get some words to recall for the sonnet`, () => {
@@ -25,28 +26,17 @@ first word to recall
 		// Then
 		expect(wordsToRecall).toHaveLength(2);
 
-		expect(wordsToRecall[0]).toStrictEqual({
-			lineNumber: 0,
-			textWithReplacementValue: `This is a ::the_empty_value::`,
-			beforeText: `This is a `,
-			afterText: ``,
-			answer: {
-				value: `test`,
-				unitType: `word`,
-				unitLength: 1
-			}
-		});
-
-		expect(wordsToRecall[1]).toStrictEqual({
-			lineNumber: 1,
-			beforeText: `sentence to `,
-			textWithReplacementValue: `sentence to ::the_empty_value:: or not remember`,
-			afterText: ` or not remember`,
-			answer: {
-				value: `remember`,
-				unitType: `word`,
-				unitLength: 1
-			}
-		});
+		expect(wordsToRecall[0]).toStrictEqual(
+			new RecallableQuestion(0, `This is a ::the_empty_value::`, `This is a `, ``, `test`)
+		);
+		expect(wordsToRecall[1]).toStrictEqual(
+			new RecallableQuestion(
+				1,
+				`sentence to ::the_empty_value:: or not remember`,
+				`sentence to `,
+				` or not remember`,
+				`remember`
+			)
+		);
 	});
 });
