@@ -9,7 +9,7 @@ describe(`RealSonnetRepository`, () => {
 		const allSonnets = theRepository.getAllSonnets();
 
 		// then
-		expect(allSonnets).toHaveLength(1);
+		expect(allSonnets).toHaveLength(3);
 	});
 
 	it(`should get a sonnet by ID`, () => {

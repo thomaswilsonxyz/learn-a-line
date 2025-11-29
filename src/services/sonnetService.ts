@@ -1,11 +1,6 @@
 import { RecallableQuestion } from '../models/recallableQuestion';
+import type { RecallableSonnetWord } from '../models/recallableSonnetWord';
 import type { Sonnet } from '../models/sonnet';
-
-interface RecallableSonnetWord {
-	lineIndex: number;
-	text: string;
-	textLineIndex: number;
-}
 
 export class SonnetService {
 	getWordsToRecall(
@@ -17,11 +12,12 @@ export class SonnetService {
 			const theLine = theSonnet.getLine(lineIndex);
 			const { afterText, beforeText } = theLine.withoutTextInstance(text, textLineIndex);
 			return new RecallableQuestion(
+				theSonnet.id,
 				lineIndex,
-				`${beforeText}${theReplacementValue}${afterText}`,
 				beforeText,
 				afterText,
-				text
+				text,
+				theReplacementValue
 			);
 		});
 	}
