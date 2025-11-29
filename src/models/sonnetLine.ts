@@ -1,8 +1,14 @@
 export class SonnetLine {
-	constructor(public readonly fullText: string) {}
+	private readonly eolCharacter = '::EOL::';
+	private readonly fullTextWithEolCharacter: string;
+	constructor(public readonly fullText: string) {
+		this.fullTextWithEolCharacter = [fullText, this.eolCharacter].join('');
+	}
 
 	withoutTextInstance(theTextToRemove: string, theTextInstanceNumber: number, replaceWith = '***') {
-		const segments = this.fullText.split(theTextToRemove).filter((text) => text.length > 0);
+		const segments = this.fullTextWithEolCharacter
+			.split(theTextToRemove)
+			.filter((text) => text.length > 0);
 
 		const beforeText = segments
 			.filter((_text, index) => index <= theTextInstanceNumber)
@@ -11,8 +17,11 @@ export class SonnetLine {
 
 		const afterText = segments
 			.filter((_text, index) => index > theTextInstanceNumber)
-			.map((text) => `${text}${theTextToRemove}`)
-			.join('');
+			.map((text, index, array) =>
+				index === array.length - 1 ? text : `${text}${theTextToRemove}`
+			)
+			.join('')
+			.replace(this.eolCharacter, '');
 
 		const fullText = [beforeText, replaceWith, afterText].join('');
 

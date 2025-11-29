@@ -4,15 +4,18 @@ import { RecallableQuestion } from './recallableQuestion';
 describe(`RecallableQuestion`, () => {
 	it(`should construct`, () => {
 		const theRecallableQuestion = new RecallableQuestion(
+			'the-sonnet-id',
 			0,
-			'the text with replacement value',
 			`the before text`,
 			`the after text`,
-			`the answer text`
+			`the answer text`,
+			'::replacement::'
 		);
 
-		expect(theRecallableQuestion.lineNumber).toBe(0);
-		expect(theRecallableQuestion.textWithReplacementValue).toBe(`the text with replacement value`);
+		expect(theRecallableQuestion.sonnetId).toBe('the-sonnet-id');
+		expect(theRecallableQuestion.textWithReplacementValue).toBe(
+			`the before text::replacement::the after text`
+		);
 		expect(theRecallableQuestion.beforeText).toBe(`the before text`);
 		expect(theRecallableQuestion.afterText).toBe(`the after text`);
 		expect(theRecallableQuestion.answer).toStrictEqual({

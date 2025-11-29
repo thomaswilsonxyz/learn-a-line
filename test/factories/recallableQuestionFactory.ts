@@ -1,18 +1,23 @@
 import { RecallableQuestion } from '../../src/models/recallableQuestion';
 
 export class RecallableQuestionFactory {
-	private lineNumber = 0;
-	private textWithReplacementValue = `default-textWithReplacementValue`;
+	private sonnetId = 'default-sonnetId';
+	private lineIndex = 0;
 	private beforeText = `default-beforeText`;
 	private afterText = `default-afterText`;
 	private answerText = `default-answerText`;
+	private replacementString = `***`;
 
-	withLineNumber(value: number) {
-		this.lineNumber = value;
+	withSonnetId(value: string) {
+		this.sonnetId = value;
 		return this;
 	}
-	withTextWithReplacementValue(value: string) {
-		this.textWithReplacementValue = value;
+	withLineIndex(value: number) {
+		this.lineIndex = value;
+		return this;
+	}
+	withReplacementString(value: string) {
+		this.replacementString = value;
 		return this;
 	}
 	withBeforeText(value: string) {
@@ -29,11 +34,12 @@ export class RecallableQuestionFactory {
 	}
 	build(): RecallableQuestion {
 		return new RecallableQuestion(
-			this.lineNumber,
-			this.textWithReplacementValue,
+			this.sonnetId,
+			this.lineIndex,
 			this.beforeText,
 			this.afterText,
-			this.answerText
+			this.answerText,
+			this.replacementString
 		);
 	}
 }
