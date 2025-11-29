@@ -1,0 +1,7 @@
+@layer reset, app;
+
+@layer app {
+	body {
+		font-family: serif;
+	}
+}

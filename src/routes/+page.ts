@@ -1,6 +1,7 @@
-import type { ServerLoadEvent } from '@sveltejs/kit';
+import type { PageLoad } from './$types';
 import { RealSonnetRepository } from '../repositories/sonnetRepository';
-export const load = () => {
+
+export const load: PageLoad = () => {
 	const sonnetRepository = new RealSonnetRepository();
 
 	const theSonnet = sonnetRepository.getSonnet('116');
