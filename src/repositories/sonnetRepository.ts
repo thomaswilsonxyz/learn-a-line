@@ -1,7 +1,7 @@
 import { Sonnet } from '../models/sonnet';
 import sonnetData from '../data/sonnets.json';
 
-interface ISonnetRepository {
+export interface ISonnetRepository {
 	getAllSonnets: () => Sonnet[];
 	getSonnet: (id: string) => Sonnet | null;
 }

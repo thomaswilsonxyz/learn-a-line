@@ -9,7 +9,7 @@ const schema = z.object({
 	text: z.string()
 });
 
-interface IRecallableSonnetWordsRepository {
+export interface IRecallableSonnetWordsRepository {
 	getRecallableSonnetWordsForSonnet(sonnetId: string): RecallableSonnetWord[];
 }
 
