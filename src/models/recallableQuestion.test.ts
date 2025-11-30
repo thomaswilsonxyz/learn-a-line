@@ -3,6 +3,7 @@ import { RecallableQuestion } from './recallableQuestion';
 
 describe(`RecallableQuestion`, () => {
 	it(`should construct`, () => {
+		// Given / When
 		const theRecallableQuestion = new RecallableQuestion(
 			'the-sonnet-id',
 			0,
@@ -12,6 +13,7 @@ describe(`RecallableQuestion`, () => {
 			'::replacement::'
 		);
 
+		// Then
 		expect(theRecallableQuestion.sonnetId).toBe('the-sonnet-id');
 		expect(theRecallableQuestion.textWithReplacementValue).toBe(
 			`the before text::replacement::the after text`

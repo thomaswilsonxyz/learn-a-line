@@ -41,15 +41,4 @@ export class RecallableQuestion implements IRecallableQuestion {
 
 		this.textWithReplacementValue = [beforeText, replacementString, afterText].join('');
 	}
-
-	static fromDto(dto: RecallableQuestionDTO, replacementString?: string): RecallableQuestion {
-		return new RecallableQuestion(
-			dto.sonnetId,
-			dto.lineIndex,
-			dto.beforeText,
-			dto.afterText,
-			dto.answerText,
-			replacementString
-		);
-	}
 }
