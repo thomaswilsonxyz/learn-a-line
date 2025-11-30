@@ -46,6 +46,8 @@
 	},
 	"dependencies": {
 		"better-sqlite3": "^12.4.1",
+		"just-group-by": "^2.2.0",
+		"just-order-by": "^1.0.0",
 		"zod": "^4.1.13"
 	}
 }

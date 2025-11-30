@@ -11,6 +11,12 @@ importers:
       better-sqlite3:
         specifier: ^12.4.1
         version: 12.4.6
+      just-group-by:
+        specifier: ^2.2.0
+        version: 2.2.0
+      just-order-by:
+        specifier: ^1.0.0
+        version: 1.0.0
       zod:
         specifier: ^4.1.13
         version: 4.1.13
@@ -1191,6 +1197,12 @@ packages:
 
   json-stable-stringify-without-jsonify@1.0.1:
     resolution: {integrity: sha512-Bdboy+l7tA3OGW6FjyFHWkP5LuByj1Tk33Ljyq0axyzdk9//JSi2u3fP1QSmd1KNwq6VOKYGlAu87CisVir6Pw==}
+
+  just-group-by@2.2.0:
+    resolution: {integrity: sha512-brZocDSmkvDYc+FOr07GiTar4cp7K6OB9huVOrj5LX+iXfCe3hTvn2KGM811LE/SBQkCzuYDDEcG8HA/dKDrnw==}
+
+  just-order-by@1.0.0:
+    resolution: {integrity: sha512-m83kcBMoX43jRLDzR6J7NzIpEEpMmMmh0xwVSMKpXObIFh6ejxpQ02HXc9gCq5cFWHbL5gZ3yRHRGYgMGpoUnA==}
 
   keyv@4.5.4:
     resolution: {integrity: sha512-oxVHkHR/EJf2CNXnWxRLW6mg7JyCCUcG0DtEGmL2ctUo1PNTin1PUil+r/+4r5MpVgC/fn1kjsx7mjSujKqIpw==}
@@ -2612,6 +2624,10 @@ snapshots:
   json-schema-traverse@0.4.1: {}
 
   json-stable-stringify-without-jsonify@1.0.1: {}
+
+  just-group-by@2.2.0: {}
+
+  just-order-by@1.0.0: {}
 
   keyv@4.5.4:
     dependencies:
